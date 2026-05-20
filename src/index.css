@@ -1,0 +1,170 @@
+/* ============================================
+   PokéWeb — Theme System + Global Styles
+   ============================================ */
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ===== NORMAL MODE (default) ===== */
+body[data-theme="normal"],
+body:not([data-theme]) {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --accent: #ffcb05;
+  --accent-hover: #e6b800;
+  --card-bg: #ffffff;
+  --card-border: #dee2e6;
+  --shadow: rgba(0, 0, 0, 0.08);
+}
+
+/* ===== POKÉMON MODE ===== */
+body[data-theme="pokemon"] {
+  --bg-primary: #0f380f;
+  --bg-secondary: #1a4a1a;
+  --text-primary: #9bbc0f;
+  --text-secondary: #8bac0f;
+  --accent: #ef5350;
+  --accent-hover: #c62828;
+  --card-bg: #1a4a1a;
+  --card-border: #306230;
+  --shadow: rgba(155, 188, 15, 0.15);
+}
+
+body[data-theme="pokemon"] {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Courier New', 'Consolas', monospace;
+}
+
+body[data-theme="pokemon"] .navbar-brand span:first-child {
+  display: none;
+}
+
+body[data-theme="pokemon"] .navbar-brand::before {
+  content: '🎮';
+  margin-right: 8px;
+  font-size: 1.3rem;
+}
+
+body[data-theme="pokemon"] .card {
+  border: 2px solid var(--card-border) !important;
+  box-shadow: 0 0 8px var(--shadow) !important;
+  image-rendering: pixelated;
+}
+
+body[data-theme="pokemon"] .card-img-top {
+  background-color: var(--bg-secondary) !important;
+  border-bottom: 1px solid var(--card-border);
+}
+
+body[data-theme="pokemon"] .btn-outline-secondary {
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+body[data-theme="pokemon"] .btn-outline-secondary:hover {
+  background-color: var(--accent);
+  color: #0f380f;
+  border-color: var(--accent);
+}
+
+body[data-theme="pokemon"] .page-link {
+  background-color: var(--bg-secondary);
+  border-color: var(--card-border);
+  color: var(--text-primary);
+}
+
+body[data-theme="pokemon"] .page-item.active .page-link {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #0f380f;
+}
+
+body[data-theme="pokemon"] .page-item.disabled .page-link {
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  opacity: 0.5;
+}
+
+body[data-theme="pokemon"] .form-control {
+  background-color: var(--bg-secondary);
+  border-color: var(--card-border);
+  color: var(--text-primary);
+}
+
+body[data-theme="pokemon"] .form-control::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+body[data-theme="pokemon"] .form-control:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 0.2rem rgba(239, 83, 80, 0.25);
+}
+
+body[data-theme="pokemon"] .list-group-item {
+  background-color: var(--bg-secondary);
+  border-color: var(--card-border);
+  color: var(--text-primary);
+}
+
+body[data-theme="pokemon"] .list-group-item:hover {
+  background-color: var(--card-border);
+}
+
+body[data-theme="pokemon"] .navbar-toggler-icon {
+  filter: invert(0.8);
+}
+
+body[data-theme="pokemon"] .badge {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* Global body transition for smooth theme switch */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Pokémon card hover effect */
+.pokemon-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pokemon-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px var(--shadow) !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: 4px;
+}
+
+/* Progress bar in normal mode */
+body[data-theme="normal"] .progress-bar {
+  border-radius: 4px;
+}
+
+/* Navbar active link */
+body[data-theme="pokemon"] .nav-link.active {
+  background-color: var(--accent) !important;
+  color: #0f380f !important;
+  border-radius: 4px;
+}
